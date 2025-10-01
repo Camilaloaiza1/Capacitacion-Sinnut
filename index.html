@@ -1349,10 +1349,558 @@
             .support-links {
                 justify-content: center;
             }
-        }   
+        }
+
+        /* Menú Hamburguesa */
+        .hamburger-menu {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .hamburger-btn {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-normal);
+            padding: 12px;
+        }
+
+        .hamburger-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: var(--transition-normal);
+        }
+
+        .hamburger-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Overlay */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-normal);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -400px;
+            width: 380px;
+            height: 100vh;
+            background: white;
+            box-shadow: var(--shadow-xl);
+            z-index: 1000;
+            transition: var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-xl);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .sidebar-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .sidebar-logo span {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .sidebar-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .sidebar-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .sidebar-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .sidebar-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--neutral-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0 var(--spacing-xl) var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            text-decoration: none;
+            color: var(--neutral-700);
+            transition: var(--transition-normal);
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-item:hover {
+            background: var(--neutral-50);
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        .sidebar-item i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Dropdowns de módulos */
+        .sidebar-dropdown {
+            border-bottom: 1px solid var(--neutral-200);
+        }
+
+        .sidebar-dropdown-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .sidebar-dropdown-header:hover {
+            background: var(--neutral-50);
+        }
+
+        .dropdown-title {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .dropdown-title i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .dropdown-icon {
+            transition: var(--transition-normal);
+            font-size: 0.875rem;
+            color: var(--neutral-500);
+        }
+
+        .dropdown-icon.active {
+            transform: rotate(180deg);
+            color: var(--primary-color);
+        }
+
+        .sidebar-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--neutral-50);
+        }
+
+        .sidebar-dropdown-content.active {
+            max-height: 500px;
+        }
+
+        .sidebar-subitem {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) var(--spacing-xl) var(--spacing-md) 68px;
+            text-decoration: none;
+            color: var(--neutral-600);
+            font-size: 0.9rem;
+            transition: var(--transition-normal);
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-subitem:hover {
+            background: white;
+            color: var(--primary-color);
+            border-left-color: var(--info-color);
+        }
+
+        .sidebar-subitem i {
+            width: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Información del curso */
+        .sidebar-info {
+            padding: 0 var(--spacing-xl);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm) 0;
+            font-size: 0.9rem;
+            color: var(--neutral-600);
+        }
+
+        .info-item i {
+            width: 20px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        /* Footer del sidebar */
+        .sidebar-footer {
+            padding: var(--spacing-xl);
+            background: var(--neutral-50);
+            border-top: 1px solid var(--neutral-200);
+        }
+
+        .progress-info {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--neutral-700);
+        }
+
+        .progress-percent {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--neutral-300);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--success-color), #16a34a);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .btn-sidebar-primary {
+            width: 100%;
+            padding: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-size: 1rem;
+        }
+
+        .btn-sidebar-primary:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                top: 15px;
+                left: 15px;
+            }
+            
+            .hamburger-btn {
+                width: 44px;
+                height: 44px;
+            }
+            
+            .sidebar {
+                width: 320px;
+            }
+            
+            .sidebar-header {
+                padding: var(--spacing-lg);
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Menú Hamburguesa -->
+    <div class="hamburger-menu">
+        <!-- Botón hamburguesa -->
+        <div class="hamburger-btn" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Overlay para cerrar menú -->
+        <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <img src="assets/images/Logos/Isotipo Blanco.png" alt="Logo Sinnut ERP">
+                    <span>Curso Sinnut ERP</span>
+                </div>
+                <button class="sidebar-close" onclick="toggleSidebar()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+               
+
+                <!-- Módulos desplegables -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Módulos del Curso</div>
+                    
+                    <!-- Módulo Contabilidad -->
+                    <div class="sidebar-dropdown">
+                        <div class="sidebar-dropdown-header" onclick="toggleDropdown('contabilidad')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-calculator"></i>
+                                <span>Gestión de Contabilidad</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-icon" id="dropdown-icon-contabilidad"></i>
+                        </div>
+                        <div class="sidebar-dropdown-content" id="dropdown-content-contabilidad">
+                            <a href="modulos/contabilidad/introduccion-contabilidad.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Introducción a Contabilidad</span>
+                            </a>
+                            <a href="modulos/contabilidad/arqueo-caja.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>Arqueo de Caja</span>
+                            </a>
+                            <a href="modulos/contabilidad/apertura-caja.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-cash-register"></i>
+                                <span>Apertura de Caja</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Módulo Contratos -->
+                    <div class="sidebar-dropdown">
+                        <div class="sidebar-dropdown-header" onclick="toggleDropdown('contratos')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-file-contract"></i>
+                                <span>Gestión de Contratos</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-icon" id="dropdown-icon-contratos"></i>
+                        </div>
+                        <div class="sidebar-dropdown-content" id="dropdown-content-contratos">
+                            <a href="modulos/contratos/introduccion-contratos.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Introducción a Contratos</span>
+                            </a>
+                            <a href="modulos/contratos/crear-contrato.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-file-plus"></i>
+                                <span>Crear Contratos</span>
+                            </a>
+                            <a href="modulos/contratos/consultar-contrato.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-search"></i>
+                                <span>Consultar Contratos</span>
+                            </a>
+                            <a href="modulos/contratos/pagar-prorroga.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Pagar Prórroga</span>
+                            </a>
+                            <a href="modulos/contratos/pagar-retroventa.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-undo"></i>
+                                <span>Pagar Retroventa</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Módulo Facturas -->
+                    <div class="sidebar-dropdown">
+                        <div class="sidebar-dropdown-header" onclick="toggleDropdown('facturas')">
+                            <div class="dropdown-title">
+                                <i class="fas fa-file-invoice"></i>
+                                <span>Gestión de Facturas</span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-icon" id="dropdown-icon-facturas"></i>
+                        </div>
+                        <div class="sidebar-dropdown-content" id="dropdown-content-facturas">
+                            <a href="modulos/facturas/introduccion-facturas.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Introducción a Facturas</span>
+                            </a>
+                            <a href="modulos/facturas/factura-de-venta.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <span>Factura de Venta</span>
+                            </a>
+                            <a href="modulos/facturas/crear-plan-separe.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Crear Plan Separe</span>
+                            </a>
+                            <a href="modulos/facturas/consultar-plan-separe.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-search"></i>
+                                <span>Consultar Plan Separe</span>
+                            </a>
+                            <a href="modulos/facturas/abonar-facturar-plan-separe.html" class="sidebar-subitem" onclick="toggleSidebar()">
+                                <i class="fas fa-coins"></i>
+                                <span>Abonar y Facturar Plan Separe</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recursos y enlaces adicionales -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Recursos Adicionales</div>
+                    
+                    <a href="faq.html" class="sidebar-item" onclick="toggleSidebar()">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Preguntas Frecuentes</span>
+                    </a>
+                    <a href="https://wa.me/573164706103?text=Hola,%20necesito%20ayuda%20con%20el%20curso%20Sinnut%20ERP" 
+                       class="sidebar-item" target="_blank" onclick="toggleSidebar()">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Soporte WhatsApp</span>
+                    </a>
+                    <a href="mailto:soporte.ti@oroexpress.com.co" class="sidebar-item" onclick="toggleSidebar()">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contactar Soporte</span>
+                    </a>
+                    <a href="#" class="sidebar-item" onclick="toggleSidebar()">
+                        <i class="fas fa-download"></i>
+                        <span>Descargar Materiales</span>
+                    </a>
+                </div>
+
+                <!-- Información del curso -->
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Información del Curso</div>
+                    
+                    <div class="sidebar-info">
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Duración: 2 horas</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Módulos: 3</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-book"></i>
+                            <span>Lecciones: 10</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certificación: Incluida</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="progress-info">
+                    <div class="progress-label">
+                        <span>Progreso del Curso</span>
+                        <span class="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+                <button class="btn-sidebar-primary" onclick="toggleSidebar()">
+                    <i class="fas fa-play-circle"></i>
+                    Continuar Aprendiendo
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Header institucional con navegación -->
     <header class="header">
@@ -2296,10 +2844,66 @@
                 });
             }
         };
+
+        // Funciones para el menú hamburguesa
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            const hamburger = document.querySelector('.hamburger-btn');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            
+            // Cerrar todos los dropdowns al abrir/cerrar el sidebar
+            if (!sidebar.classList.contains('active')) {
+                document.querySelectorAll('.sidebar-dropdown-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.querySelectorAll('.dropdown-icon').forEach(icon => {
+                    icon.classList.remove('active');
+                });
+            }
+        }
+
+        function toggleDropdown(moduleId) {
+            const content = document.getElementById(`dropdown-content-${moduleId}`);
+            const icon = document.getElementById(`dropdown-icon-${moduleId}`);
+            
+            content.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        // Cerrar sidebar al hacer clic en un enlace (ya incluido en los onclick)
+        // Cerrar sidebar con tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const sidebar = document.querySelector('.sidebar');
+                if (sidebar.classList.contains('active')) {
+                    toggleSidebar();
+                }
+            }
+        });
+
+        // Actualizar progreso del curso (ejemplo)
+        function updateCourseProgress() {
+            // En una implementación real, esto vendría de localStorage o una API
+            const progress = localStorage.getItem('courseProgress') || 0;
+            const progressFill = document.querySelector('.progress-fill');
+            const progressPercent = document.querySelector('.progress-percent');
+            
+            if (progressFill && progressPercent) {
+                progressFill.style.width = `${progress}%`;
+                progressPercent.textContent = `${progress}%`;
+            }
+        }
+
+        // Inicializar progreso al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCourseProgress();
+        });
     </script>
     
     <!-- Versión: 2025-09-05T20:00:00Z -->
 </body>
 </html>
-
-

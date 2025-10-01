@@ -1,85 +1,92 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evaluación Final - Capacitación Sinnut ERP</title>
+    <title>Evaluación Final - Capacitación SINNUT ERP</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            /* Color Palette Institucional - Consistent with the system */
-            --primary-color: #0D2339;
-            --primary-light: #1a3b5c;
-            --primary-dark: #051119;
-            --primary-darker: #02080c;
-            
-            /* Colores secundarios */
-            --success-color: #22c55e;
-            --success-light: #dcfce7;
-            --success-dark: #16a34a;
-            --success-darker: #15803d;
+            /* Colores institucionales */
+            --primary-color: #1a365d;
+            --primary-light: #2d3748;
+            --primary-dark: #0f1419;
+            --secondary-color: #fbbf24;
+            --secondary-light: #fcd34d;
+            --secondary-dark: #d97706;
+            --success-color: #10b981;
+            --success-light: #34d399;
+            --success-dark: #059669;
             --warning-color: #f59e0b;
-            --warning-light: #fef3c7;
+            --warning-light: #fbbf24;
             --warning-dark: #d97706;
             --error-color: #ef4444;
-            --error-light: #fecaca;
+            --error-light: #f87171;
             --error-dark: #dc2626;
             --info-color: #3b82f6;
-            --info-light: #dbeafe;
+            --info-light: #60a5fa;
             --info-dark: #2563eb;
-            
-            /* Neutrales */
-            --neutral-25: #fefefe;
-            --neutral-50: #f8fafc;
-            --neutral-100: #f1f5f9;
-            --neutral-200: #e2e8f0;
-            --neutral-300: #cbd5e1;
-            --neutral-400: #94a3b8;
-            --neutral-500: #64748b;
-            --neutral-600: #475569;
-            --neutral-700: #334155;
-            --neutral-800: #1e293b;
-            --neutral-900: #0f172a;
-            
-            /* Texto */
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --text-white: #ffffff;
-            
+
+            /* Colores neutros */
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --black: #000000;
+
             /* Espaciado */
             --spacing-xs: 0.25rem;
             --spacing-sm: 0.5rem;
-            --spacing-md: 0.75rem;
-            --spacing-lg: 1rem;
-            --spacing-xl: 1.5rem;
-            --spacing-2xl: 2rem;
-            --spacing-3xl: 2.5rem;
-            --spacing-4xl: 3rem;
-            --spacing-5xl: 4rem;
-            --spacing-6xl: 5rem;
-            
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+
             /* Bordes */
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-            --radius-2xl: 1.5rem;
-            --radius-3xl: 2rem;
-            --radius-full: 9999px;
-            
+            --border-radius-sm: 0.25rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 1rem;
+            --border-radius-xl: 1.5rem;
+            --border-radius-full: 9999px;
+
             /* Sombras */
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            
+
+            /* Tipografía */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+
+            /* Líneas */
+            --line-height-tight: 1.25;
+            --line-height-snug: 1.375;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.625;
+            --line-height-loose: 2;
+
             /* Transiciones */
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: 150ms ease-in-out;
+            --transition-normal: 300ms ease-in-out;
+            --transition-slow: 500ms ease-in-out;
         }
 
         * {
@@ -89,401 +96,139 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--neutral-50);
-            font-size: 16px;
-            overflow-x: hidden;
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            color: var(--gray-800);
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: var(--spacing-lg);
         }
 
-        /* Header Moderno - Enhanced with system consistency */
+        /* Header */
         .header {
-            background: linear-gradient(135deg, var(--success-color) 0%, var(--success-dark) 100%);
-            color: var(--text-white);
-            padding: var(--spacing-6xl) var(--spacing-2xl);
-            border-radius: var(--radius-3xl);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: var(--spacing-2xl) 0;
             text-align: center;
-            margin-bottom: var(--spacing-5xl);
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-2xl);
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-            animation: celebrationShimmer 4s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes celebrationShimmer {
-            0%, 100% { transform: translateX(-30px) translateY(-30px) rotate(0deg); }
-            50% { transform: translateX(30px) translateY(30px) rotate(180deg); }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-icon {
-            font-size: 4rem;
-            margin-bottom: var(--spacing-xl);
-            animation: celebrationBounce 2s ease-in-out infinite;
-        }
-
-        @keyframes celebrationBounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+            box-shadow: var(--shadow-lg);
         }
 
         .header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: var(--font-size-4xl);
             font-weight: 700;
-            margin-bottom: var(--spacing-lg);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
-            font-size: 1.25rem;
-            opacity: 0.95;
-            max-width: 700px;
+            font-size: var(--font-size-lg);
+            opacity: 0.9;
+            max-width: 600px;
             margin: 0 auto;
-            line-height: 1.7;
         }
 
-        /* Secciones - Consistent with other pages */
+        /* Secciones */
         .section {
-            background: linear-gradient(135deg, white 0%, var(--neutral-50) 100%);
-            padding: var(--spacing-4xl);
-            border-radius: var(--radius-3xl);
-            margin-bottom: var(--spacing-4xl);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--neutral-200);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--success-color), var(--info-color));
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .section:hover::before {
-            opacity: 1;
-        }
-
-        .section:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-2xl);
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
         }
 
         .section h2 {
-            color: var(--primary-color);
-            font-size: 2rem;
+            font-size: var(--font-size-2xl);
             font-weight: 600;
-            margin-bottom: var(--spacing-xl);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
             display: flex;
             align-items: center;
             gap: var(--spacing-md);
-            line-height: 1.3;
         }
 
-        .section h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
+        .section h2 i {
+            color: var(--secondary-color);
         }
 
-        /* Grids modernos */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-xl);
-            margin: var(--spacing-xl) 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, rgba(34, 197, 94, 0.02) 100%);
-            border: 2px solid var(--success-color);
-            border-radius: var(--radius-2xl);
-            padding: var(--spacing-2xl);
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
-            animation: statPulse 3s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes statPulse {
-            0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.5; }
-            50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--success-dark);
-        }
-
-        .stat-icon {
-            font-size: 3rem;
-            margin-bottom: var(--spacing-lg);
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-sm);
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--success-color);
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Tarjeta de redirección - Enhanced */
-        .redirect-card {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border: 3px solid var(--info-color);
-            border-radius: var(--radius-3xl);
-            padding: var(--spacing-5xl);
-            text-align: center;
-            margin: var(--spacing-4xl) 0;
-            box-shadow: var(--shadow-2xl);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .redirect-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            animation: redirectPulse 3s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes redirectPulse {
-            0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.5; }
-            50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
-        }
-
-        .redirect-card h2 {
-            color: var(--info-color);
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-xl);
-            position: relative;
-            z-index: 2;
-        }
-
-        .redirect-card p {
-            font-size: 1.125rem;
-            color: var(--text-primary);
-            margin-bottom: var(--spacing-xl);
-            line-height: 1.7;
-            position: relative;
-            z-index: 2;
-        }
-
-        .countdown {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--info-color);
-            margin: var(--spacing-xl) 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Botones modernos - Consistent with system */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-lg) var(--spacing-2xl);
-            border: none;
-            border-radius: var(--radius-2xl);
-            font-size: 1.125rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-            color: var(--text-white);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: var(--shadow-2xl);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, var(--success-color) 0%, var(--success-dark) 100%);
-            color: var(--text-white);
-        }
-
-        .btn-success:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: var(--shadow-2xl);
-        }
-
-        .btn-info {
-            background: linear-gradient(135deg, var(--info-color) 0%, var(--info-dark) 100%);
-            color: var(--text-white);
-        }
-
-        .btn-info:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: var(--shadow-2xl);
-        }
-
-        /* Alertas modernas - Consistent */
+        /* Alertas */
         .alert {
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-2xl);
-            margin: var(--spacing-xl) 0;
-            border-left: 4px solid;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .alert::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-            animation: alertShine 4s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes alertShine {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
-        }
-
-        .alert h3 {
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
             margin-bottom: var(--spacing-lg);
             display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
+            align-items: flex-start;
+            gap: var(--spacing-md);
         }
 
         .alert-info {
-            background: linear-gradient(135deg, var(--info-light) 0%, rgba(59, 130, 246, 0.1) 100%);
-            border-color: var(--info-color);
-            color: #1e40af;
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--info-color);
+            color: var(--info-color);
         }
 
         .alert-warning {
-            background: linear-gradient(135deg, var(--warning-light) 0%, rgba(245, 158, 11, 0.1) 100%);
-            border-color: var(--warning-color);
-            color: #92400e;
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--warning-color);
+            color: var(--warning-color);
         }
 
-        /* Grid de consejos */
+        .alert h3 {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .alert ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .alert li {
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-lg);
+            position: relative;
+        }
+
+        .alert li i {
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* Tips Grid */
         .tips-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-xl);
-            margin: var(--spacing-xl) 0;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
         }
 
         .tip-card {
-            background: white;
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-
-        .tip-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
+            background: var(--gray-50);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--gray-200);
         }
 
         .tip-card h4 {
-            color: var(--primary-color);
-            font-size: 1.125rem;
+            font-size: var(--font-size-lg);
             font-weight: 600;
+            color: var(--primary-color);
             margin-bottom: var(--spacing-md);
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);
+        }
+
+        .tip-card h4 i {
+            color: var(--secondary-color);
         }
 
         .tip-card ul {
@@ -492,120 +237,373 @@
         }
 
         .tip-card li {
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-sm);
-            padding-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-xs);
+            padding-left: var(--spacing-md);
             position: relative;
         }
 
         .tip-card li::before {
-            content: '✓';
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
             position: absolute;
             left: 0;
-            color: var(--success-color);
+        }
+
+        /* Quiz Section */
+        #quizSection {
+            display: none;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        .timer {
+            background: var(--error-color);
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-md);
             font-weight: 600;
-        }
-
-        /* Navegación - Consistent */
-        .navigation {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
-            margin: var(--spacing-4xl) 0;
-        }
-
-        .nav-link {
+            font-size: var(--font-size-lg);
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);
-            padding: var(--spacing-lg) var(--spacing-xl);
-            background: white;
-            border: 2px solid var(--neutral-300);
-            border-radius: var(--radius-xl);
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
         }
 
-        .nav-link:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .nav-link.primary:hover {
-            border-color: var(--primary-color);
-            background: var(--primary-color);
-            color: var(--text-white);
-        }
-
-        .nav-link.success:hover {
-            border-color: var(--success-color);
-            background: var(--success-color);
-            color: var(--text-white);
-        }
-
-        /* Footer - Consistent */
-        .footer {
-            background: linear-gradient(135deg, var(--neutral-100) 0%, white 100%);
-            border: 1px solid var(--neutral-200);
-            border-radius: var(--radius-2xl);
-            padding: var(--spacing-4xl);
-            margin-top: var(--spacing-5xl);
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            position: relative;
+        .progress-container {
+            background: var(--gray-200);
+            height: 8px;
+            border-radius: var(--border-radius-full);
             overflow: hidden;
+            margin-bottom: var(--spacing-md);
         }
 
-        .footer::before {
-            content: '';
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success-color) 0%, var(--secondary-color) 100%);
+            border-radius: var(--border-radius-full);
+            transition: width var(--transition-normal);
+        }
+
+        .question-counter {
+            text-align: center;
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .question-card {
+            background: var(--gray-50);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .question-number {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .question-text {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xl);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .option {
+            background: var(--white);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+
+        .option:hover {
+            border-color: var(--primary-color);
+            background: rgba(26, 54, 93, 0.05);
+        }
+
+        .option input[type="radio"] {
             position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option input[type="radio"]:checked + label {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .option label {
+            display: block;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .nav-btn {
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: none;
+            border-radius: var(--border-radius-md);
+            font-weight: 600;
+            font-size: var(--font-size-base);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            text-decoration: none;
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-btn.primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .nav-btn.primary:hover:not(:disabled) {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-btn.secondary {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .nav-btn.secondary:hover:not(:disabled) {
+            background: var(--secondary-light);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-btn.success {
+            background: var(--success-color);
+            color: var(--white);
+        }
+
+        .nav-btn.success:hover:not(:disabled) {
+            background: var(--success-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--success-color), var(--info-color));
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
         }
 
-        .footer-content {
-            position: relative;
-            z-index: 2;
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--border-radius-xl);
+            padding: var(--spacing-3xl);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+            transform: scale(0.9);
+            transition: transform var(--transition-normal);
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .result-icon {
+            font-size: var(--font-size-5xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .modal-title {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .modal-text {
+            font-size: var(--font-size-lg);
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-xl);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .final-score {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+            padding: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            border-radius: var(--border-radius-lg);
+            border: 2px solid var(--gray-200);
+        }
+
+        .certificate-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .form-group input {
+            padding: var(--spacing-md);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-base);
+            transition: border-color var(--transition-fast);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+        }
+
+        .modal-actions .nav-btn {
+            flex: 1;
+            max-width: 200px;
+        }
+
+        /* Loading */
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
         }
 
         .footer h4 {
-            color: var(--primary-color);
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: var(--font-size-xl);
             margin-bottom: var(--spacing-lg);
         }
 
         .contact-grid {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-2xl);
-            flex-wrap: wrap;
-            margin: var(--spacing-xl) 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: var(--spacing-sm);
-            color: var(--text-secondary);
+            padding: var(--spacing-md);
+            background: var(--gray-800);
+            border-radius: var(--border-radius-md);
         }
 
         .contact-item i {
-            color: var(--success-color);
-            font-size: 1.125rem;
+            color: var(--secondary-color);
         }
 
-        /* Animaciones - Consistent */
-        @keyframes fadeInUp {
+        /* Animations */
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -613,158 +611,135 @@
             }
         }
 
-        .animate-in {
-            animation: fadeInUp 0.6s ease-out forwards;
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        /* Responsive - Enhanced */
+        .animate-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .animate-slide-in {
+            animation: slideIn 0.4s ease-out forwards;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: var(--spacing-sm);
+                padding: var(--spacing-md);
             }
-            
+
             .header {
-                padding: var(--spacing-4xl) var(--spacing-lg);
+                padding: var(--spacing-xl) var(--spacing-md);
             }
-            
+
             .header h1 {
-                font-size: 2rem;
+                font-size: var(--font-size-3xl);
             }
-            
+
             .section {
-                padding: var(--spacing-2xl);
+                padding: var(--spacing-lg);
             }
-            
-            .stats-grid,
-            .tips-grid,
+
+            .quiz-header {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                align-items: stretch;
+            }
+
+            .timer {
+                text-align: center;
+            }
+
+            .question-card {
+                padding: var(--spacing-lg);
+            }
+
+            .question-text {
+                font-size: var(--font-size-lg);
+            }
+
+            .option {
+                padding: var(--spacing-md);
+            }
+
             .navigation {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+            }
+
+            .certificate-form {
                 grid-template-columns: 1fr;
             }
-            
-            .btn {
-                padding: var(--spacing-md) var(--spacing-lg);
-                font-size: 1rem;
+
+            .modal-content {
+                padding: var(--spacing-xl);
+                margin: var(--spacing-md);
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* Accessibility improvements */
-        .btn:focus,
-        .nav-link:focus {
-            outline: 2px solid var(--info-color);
-            outline-offset: 2px;
-        }
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: var(--font-size-2xl);
+            }
 
-        .alert {
-            role: "alert";
+            .section h2 {
+                font-size: var(--font-size-xl);
+            }
+
+            .question-text {
+                font-size: var(--font-size-base);
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header de Felicitaciones -->
-        <div class="header animate-in">
-            <div class="header-content">
-                <div class="header-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h1>¡Felicitaciones!</h1>
-                <p>Has completado con éxito el curso de Capacitación en Sinnut ERP. Ahora es momento de demostrar todo lo que has aprendido en la evaluación final.</p>
-            </div>
-        </div>
+        <!-- Header -->
+        <header class="header animate-in">
+            <h1>Evaluación Final</h1>
+            <p>Capacitación completa del sistema SINNUT ERP - Oroexpress</p>
+        </header>
 
-        <!-- Resumen del Curso - Enhanced with links to modules -->
-        <div class="section animate-in">
-            <h2>
-                <i class="fas fa-chart-line"></i>
-                Resumen del Curso
-            </h2>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-file-contract" style="color: var(--info-color);"></i>
-                    </div>
-                    <div class="stat-title">Módulo de Contratos</div>
-                    <div class="stat-value">✓</div>
-                    <a href="../contratos/" class="btn btn-info" style="margin-top: var(--spacing-md); font-size: 0.875rem;">Repasar</a>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-file-invoice-dollar" style="color: var(--success-color);"></i>
-                    </div>
-                    <div class="stat-title">Módulo de Facturas</div>
-                    <div class="stat-value">✓</div>
-                    <a href="../facturas/" class="btn btn-success" style="margin-top: var(--spacing-md); font-size: 0.875rem;">Repasar</a>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-cash-register" style="color: var(--warning-color);"></i>
-                    </div>
-                    <div class="stat-title">Módulo de Caja</div>
-                    <div class="stat-value">✓</div>
-                    <a href="../contabilidad/" class="btn btn-warning" style="margin-top: var(--spacing-md); font-size: 0.875rem;">Repasar</a>
-                </div>
-            </div>
-            
-            <p style="text-align: center; font-size: 1.125rem; color: var(--text-secondary); margin-top: var(--spacing-2xl);">
-                <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
-                Todos los módulos completados exitosamente
-            </p>
-        </div>
-
-        <!-- Tarjeta de Redirección - Enhanced with better UX -->
-        <div class="redirect-card animate-in">
-            <h2>
-                <i class="fas fa-external-link-alt"></i>
-                Evaluación Final
-            </h2>
-            <p>En unos momentos serás redirigido automáticamente a la plataforma Canvas para realizar tu evaluación final. Si no eres redirigido automáticamente, haz clic en el botón "Ir a Evaluación".</p>
-            
-            <div class="countdown" id="countdown">5</div>
-            
-            <div style="margin-top: var(--spacing-xl); display: flex; justify-content: center; gap: var(--spacing-lg); flex-wrap: wrap;">
-                <a href="https://aula.aynn.pro/courses/1/quizzes/4" target="_blank" class="btn btn-info" id="evaluation-link">
-                    <i class="fas fa-play"></i>
-                    Ir a Evaluación
-                </a>
-                <button onclick="cancelRedirect()" class="btn btn-primary" id="cancel-btn">
-                    <i class="fas fa-pause"></i>
-                    Cancelar Redirección
-                </button>
-            </div>
-        </div>
-
-        <!-- Instrucciones de la Evaluación - Enhanced -->
-        <div class="section animate-in">
+        <!-- Instrucciones de la Evaluación -->
+        <section class="section animate-in instructions-section">
             <h2>
                 <i class="fas fa-clipboard-list"></i>
                 Instrucciones de la Evaluación
             </h2>
-            
+
             <div class="alert alert-info">
                 <h3>
                     <i class="fas fa-info-circle"></i>
                     Información Importante
                 </h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); position: relative;">
-                        <i class="fas fa-clock" style="position: absolute; left: 0; color: var(--info-color);"></i>
-                        <strong>Tiempo disponible:</strong> 60 minutos para completar la evaluación
-                    </li>
-                    <li style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); position: relative;">
-                        <i class="fas fa-question-circle" style="position: absolute; left: 0; color: var(--info-color);"></i>
-                        <strong>Preguntas:</strong> 20 preguntas sobre todos los módulos del curso
-                    </li>
-                    <li style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); position: relative;">
-                        <i class="fas fa-percentage" style="position: absolute; left: 0; color: var(--info-color);"></i>
-                        <strong>Calificación mínima:</strong> 70% para aprobar el curso
-                    </li>
-                    <li style="padding-left: var(--spacing-lg); position: relative;">
-                        <i class="fas fa-redo" style="position: absolute; left: 0; color: var(--info-color);"></i>
-                        <strong>Intentos:</strong> Tienes 3 intentos disponibles
-                    </li>
+                <ul>
+                    <li><strong>Tiempo disponible:</strong> 60 minutos para completar la evaluación</li>
+                    <li><strong>Preguntas:</strong> 11 preguntas sobre todos los módulos del curso</li>
+                    <li><strong>Calificación mínima:</strong> 70% para aprobar el curso</li>
+                    <li><strong>Intentos:</strong> Tienes 3 intentos disponibles</li>
                 </ul>
             </div>
 
@@ -773,30 +748,26 @@
                     <i class="fas fa-exclamation-triangle"></i>
                     Recomendaciones
                 </h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); position: relative;">
-                        <i class="fas fa-wifi" style="position: absolute; left: 0; color: var(--warning-color);"></i>
-                        Asegúrate de tener una conexión estable a internet
-                    </li>
-                    <li style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); position: relative;">
-                        <i class="fas fa-battery-full" style="position: absolute; left: 0; color: var(--warning-color);"></i>
-                        Verifica que tu dispositivo tenga suficiente batería
-                    </li>
-                    <li style="padding-left: var(--spacing-lg); position: relative;">
-                        <i class="fas fa-clock" style="position: absolute; left: 0; color: var(--warning-color);"></i>
-                        Reserva un tiempo sin interrupciones para realizar la evaluación
-                    </li>
+                <ul>
+                    <li><strong>Conexión:</strong> Asegúrate de tener una conexión estable a internet</li>
+                    <li><strong>Batería:</strong> Verifica que tu dispositivo tenga suficiente batería</li>
+                    <li><strong>Tiempo:</strong> Reserva un tiempo sin interrupciones para realizar la evaluación</li>
                 </ul>
             </div>
-        </div>
 
-        <!-- Consejos para la Evaluación - Enhanced -->
-        <div class="section animate-in">
+            <button class="nav-btn success" onclick="startQuiz()" style="margin: 0 auto; display: block;">
+                <i class="fas fa-play"></i>
+                Comenzar Evaluación
+            </button>
+        </section>
+
+        <!-- Consejos para la Evaluación -->
+        <section class="section animate-in">
             <h2>
                 <i class="fas fa-lightbulb"></i>
                 Consejos para la Evaluación
             </h2>
-            
+
             <div class="tips-grid">
                 <div class="tip-card">
                     <h4>
@@ -810,7 +781,7 @@
                         <li>Descarga los instructivos PDF si los necesitas</li>
                     </ul>
                 </div>
-                
+
                 <div class="tip-card">
                     <h4>
                         <i class="fas fa-clock"></i>
@@ -823,7 +794,7 @@
                         <li>Utiliza el tiempo disponible eficientemente</li>
                     </ul>
                 </div>
-                
+
                 <div class="tip-card">
                     <h4>
                         <i class="fas fa-cog"></i>
@@ -837,63 +808,44 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Sección de Certificación -->
-        <div class="section animate-in" id="certification-section">
-            <h2>
-                <i class="fas fa-certificate"></i>
-                Certificación de Capacitación
-            </h2>
-            
-            <div class="alert alert-info">
-                <h3>
-                    <i class="fas fa-info-circle"></i>
-                    Información del Certificado
-                </h3>
-                <p>Para generar tu certificado oficial de capacitación en Sinnut ERP, completa los siguientes datos. El certificado será generado automáticamente, descargado en PDF y enviado por correo electrónico tanto a ti como al departamento de gestión humana.</p>
+        <!-- Quiz Section -->
+        <section class="section animate-in" id="quizSection">
+            <div class="quiz-header">
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">00:00:00</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
             </div>
 
-            <form id="certification-form" style="max-width: 600px; margin: 0 auto;">
-                <div style="margin-bottom: var(--spacing-lg);">
-                    <label for="full-name" style="display: block; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--text-primary);">
-                        <i class="fas fa-user"></i> Nombre Completo *
-                    </label>
-                    <input type="text" id="full-name" required style="width: 100%; padding: var(--spacing-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-lg); font-size: 1rem; transition: var(--transition);">
-                </div>
+            <div class="question-counter" id="questionCounter">Pregunta 1 de 11</div>
 
-                <div style="margin-bottom: var(--spacing-lg);">
-                    <label for="email" style="display: block; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--text-primary);">
-                        <i class="fas fa-envelope"></i> Correo Electrónico *
-                    </label>
-                    <input type="email" id="email" required style="width: 100%; padding: var(--spacing-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-lg); font-size: 1rem; transition: var(--transition);">
-                </div>
+            <div id="questionContainer">
+                <!-- Questions will be loaded here -->
+            </div>
 
-                <div style="margin-bottom: var(--spacing-lg);">
-                    <label for="document" style="display: block; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--text-primary);">
-                        <i class="fas fa-id-card"></i> Número de Documento *
-                    </label>
-                    <input type="text" id="document" required style="width: 100%; padding: var(--spacing-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-lg); font-size: 1rem; transition: var(--transition);">
-                </div>
+            <div class="navigation">
+                <button class="nav-btn primary" id="prevBtn" onclick="previousQuestion()" disabled>
+                    <i class="fas fa-arrow-left"></i>
+                    Anterior
+                </button>
+                <button class="nav-btn secondary" id="nextBtn" onclick="nextQuestion()">
+                    Siguiente
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="nav-btn success" id="submitBtn" onclick="submitQuiz()" style="display: none;">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Evaluación
+                </button>
+            </div>
+        </section>
 
-                <div style="margin-bottom: var(--spacing-lg);">
-                    <label for="completion-date" style="display: block; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--text-primary);">
-                        <i class="fas fa-calendar"></i> Fecha de Finalización
-                    </label>
-                    <input type="date" id="completion-date" style="width: 100%; padding: var(--spacing-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-lg); font-size: 1rem; transition: var(--transition);" value="">
-                </div>
-
-                <div style="text-align: center; margin-top: var(--spacing-2xl);">
-                    <button type="submit" class="btn btn-success" style="font-size: 1.125rem;">
-                        <i class="fas fa-download"></i>
-                        Generar y Descargar Certificado
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <!-- Navegación - Consistent -->
-        <div class="navigation animate-in">
+        <!-- Navegación -->
+        <nav class="navigation animate-in">
             <a href="../../index.html" class="nav-link primary">
                 <i class="fas fa-home"></i>
                 Inicio del Curso
@@ -902,315 +854,427 @@
                 <i class="fas fa-arrow-left"></i>
                 Último Módulo
             </a>
-        </div>
+        </nav>
 
-        <!-- Footer - Consistent -->
-        <div class="footer animate-in">
-            <div class="footer-content">
-                <h4>¿Necesitas ayuda?</h4>
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+57 316 470 6103</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>soporte.ti@oroexpress.com.co</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Lun - Vie: 8:00 AM - 6:00 PM</span>
-                    </div>
+        <!-- Footer -->
+        <footer class="footer animate-in">
+            <h4>¿Necesitas ayuda?</h4>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+57 316 470 6103</span>
                 </div>
-                <p style="margin-top: var(--spacing-lg); color: var(--text-secondary); font-size: 0.875rem;">
-                    <i class="fas fa-graduation-cap" style="color: var(--success-color);"></i>
-                    ¡Mucho éxito en tu evaluación final! Tu esfuerzo será recompensado con una certificación oficial.
-                </p>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>soporte.ti@oroexpress.com.co</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Lun - Vie: 8:00 AM - 6:00 PM</span>
+                </div>
+            </div>
+            <p style="margin-top: var(--spacing-lg); color: var(--gray-400); font-size: 0.875rem;">
+                <i class="fas fa-graduation-cap" style="color: var(--success-color);"></i>
+                ¡Mucho éxito en tu evaluación final! Tu esfuerzo será recompensado con una certificación oficial.
+            </p>
+        </footer>
+    </div>
+
+    <!-- Modal de Resultados -->
+    <div class="modal" id="resultsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="result-icon" id="resultIcon"></div>
+                <h2 class="modal-title" id="resultTitle"></h2>
+                <p class="modal-text" id="resultText"></p>
+                <div class="final-score" id="finalScore"></div>
+            </div>
+
+            <form class="certificate-form" id="certificateForm" style="display: none;">
+                <div class="form-group">
+                    <label for="studentName">Nombre Completo *</label>
+                    <input type="text" id="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentEmail">Correo Electrónico *</label>
+                    <input type="email" id="studentEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Número de Documento *</label>
+                    <input type="text" id="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="completionDate">Fecha de Finalización</label>
+                    <input type="date" id="completionDate" readonly>
+                </div>
+            </form>
+
+            <div class="modal-actions">
+                <button class="nav-btn primary" id="certificateBtn" onclick="generateCertificate()" style="display: none;">
+                    <i class="fas fa-certificate"></i>
+                    Generar Certificado
+                </button>
+                <button class="nav-btn secondary" id="retryBtn" onclick="retryQuiz()" style="display: none;">
+                    <i class="fas fa-redo"></i>
+                    Intentar de Nuevo
+                </button>
+                <button class="nav-btn success" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                    Cerrar
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript - Enhanced with tracking integration -->
-    <script src="../../assets/js/main.js"></script>
     <script>
-        let countdown = 5;
-        let redirectActive = true;
-        
-        function updateCountdown() {
-            if (!redirectActive) return;
-            
-            document.getElementById('countdown').textContent = countdown;
-            
-            if (countdown === 0) {
-                const link = document.getElementById('evaluation-link');
-                link.click();
-                document.getElementById('countdown').textContent = '¡Redirigiendo...';
-            } else {
-                countdown--;
-                setTimeout(updateCountdown, 1000);
+        // Quiz state
+        let currentQuestion = 0;
+        let answers = new Array(11).fill(null);
+        let startTime;
+        let timerInterval;
+
+        // Quiz questions
+        const questions = [
+            {
+                question: "¿Cómo se registra una apertura de caja?",
+                options: [
+                    "En \"Contabilidad\" → \"Cajas\", damos clic en el botón \"+\" arriba a la derecha, seleccionamos la caja, colocamos el monto inicial y damos en \"Guardar\"",
+                    "En \"Gestión de inventario\" → \"Cajas\", damos clic en el botón \"+\" arriba a la derecha, seleccionamos la caja y damos en \"Abrir caja\"",
+                    "En \"Contabilidad\" → \"Apertura de cajas\", buscamos la caja, colocamos el monto inicial y damos en \"Apertura\"",
+                    "En \"Gestión de ventas\" → \"Cajas\", seleccionamos la caja y colocamos el monto inicial"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se registra un arqueo de caja?",
+                options: [
+                    "En \"Contabilidad\" → \"Cajas\", buscamos la caja abierta, damos clic en los tres puntos, seleccionamos \"Arqueo\" y registramos los valores físicos",
+                    "En \"Gestión de inventario\" → \"Arqueos\", damos clic en el botón \"+\" y seleccionamos la caja",
+                    "En \"Contabilidad\" → \"Arqueos de caja\", buscamos la caja y registramos los valores",
+                    "En \"Gestión de ventas\" → \"Cajas\", damos clic en \"Arqueo\" y registramos los valores físicos"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se registra un contrato?",
+                options: [
+                    "En \"Gestión de contratos\" → \"Contratos\", damos clic en el botón \"+\" arriba a la derecha, diligenciamos la información del cliente, producto, precio y condiciones",
+                    "En \"Contratos\" → \"Nuevo contrato\", diligenciamos la información y guardamos",
+                    "En \"Gestión de ventas\" → \"Contratos\", seleccionamos cliente y producto",
+                    "En \"Facturas\" → \"Contratos\", creamos el contrato desde la factura"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se consulta un contrato?",
+                options: [
+                    "En \"Gestión de contratos\" → \"Contratos\", buscamos por número de contrato, cliente o fecha",
+                    "En \"Contratos\" → \"Consultar\", ingresamos el número del contrato",
+                    "En \"Gestión de ventas\" → \"Buscar contratos\", filtramos por cliente",
+                    "En \"Facturas\" → \"Contratos existentes\", buscamos el contrato"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se paga una prórroga a un contrato?",
+                options: [
+                    "Buscamos el contrato, le damos a los tres puntos, luego a \"Ver contrato\", buscamos el ícono de prórroga, validamos el total a pagar y damos en \"Causar y pagar\"",
+                    "Buscamos el contrato, generamos la factura y luego hacemos la prórroga",
+                    "Buscamos el contrato, le damos a los tres puntos en la esquina superior derecha, buscamos el ícono de prórroga, validamos el total a pagar y damos en \"Causar y pagar\"",
+                    "Buscamos el contrato y en la esquina superior derecha le damos a los tres puntos, buscamos el ícono de prórroga, validamos el total a pagar y damos en \"Causar y pagar\""
+                ],
+                correct: 2
+            },
+            {
+                question: "¿Cómo se paga una retroventa a un contrato?",
+                options: [
+                    "Buscamos el contrato, generamos la factura y luego hacemos la retroventa",
+                    "Buscamos el contrato, le damos a los tres puntos y en la esquina superior derecha nuevamente le damos a los tres puntos, buscamos el ícono de retroventa, validamos el total a pagar y damos en \"Causar y pagar\"",
+                    "Buscamos el contrato, le damos a los tres puntos, luego a \"Ver contrato\", buscamos el ícono de retroventa, validamos el total a pagar y damos en \"Causar y pagar\"",
+                    "Buscamos el contrato y en la esquina superior derecha le damos a los tres puntos, buscamos el ícono de retroventa, validamos el total a pagar y damos en \"Causar y pagar\""
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se registra una factura de venta?",
+                options: [
+                    "En \"Gestión de inventario\", damos clic en el botón \"+\" arriba a la derecha, ingresamos el o los SKU's, revisamos el total de la venta, aplicamos un código de descuento, seleccionamos el medio de pago y damos en \"Causar y pagar\"",
+                    "En \"Gestión de inventario\" → \"Facturas propias\", damos clic en el botón \"+\" arriba a la derecha, ingresamos el o los SKU's, revisamos el total de la venta, aplicamos un código de descuento, seleccionamos el medio de pago y damos en \"Causar y pagar\"",
+                    "En \"Gestión de ventas\" → \"Facturas propias\", damos clic en el botón \"+\" arriba a la derecha, buscamos al cliente, ingresamos el o los SKU's, revisamos el total de la venta, seleccionamos el medio de pago y damos en \"Causar y pagar\"",
+                    "En \"Gestión de ventas\" → \"Facturas propias\", damos clic en el botón \"+\" arriba a la derecha, ingresamos el o los SKU's, revisamos el total de la venta, seleccionamos el medio de pago y damos en \"Causar y pagar\""
+                ],
+                correct: 1
+            },
+            {
+                question: "¿Cómo se registra un plan separe?",
+                options: [
+                    "En \"Gestión de ventas\" → \"Planes sepa\", damos clic en el botón \"+\" arriba a la derecha, diligenciamos la información del cliente, producto, precio, cuotas y condiciones",
+                    "En \"Planes sepa\" → \"Nuevo plan\", diligenciamos la información y guardamos",
+                    "En \"Facturas\" → \"Planes sepa\", creamos el plan desde la factura",
+                    "En \"Gestión de inventario\" → \"Planes\", seleccionamos cliente y producto"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se consulta un plan separe?",
+                options: [
+                    "En \"Gestión de ventas\" → \"Planes separe\", buscamos por número de plan, cliente o fecha",
+                    "En \"Planes separe\" → \"Consultar\", ingresamos el número del plan",
+                    "En \"Facturas\" → \"Planes existentes\", buscamos el plan",
+                    "En \"Gestión de inventario\" → \"Buscar planes\", filtramos por cliente"
+                ],
+                correct: 0
+            },
+            {
+                question: "¿Cómo se registra un abono a un plan separe?",
+                options: [
+                    "Buscamos el plan separe, le damos a los tres puntos, luego a \"Ver plan\", buscamos el ícono de abono, diligenciamos el valor y damos en \"Causar y pagar\"",
+                    "Buscamos el plan separe, generamos la factura y luego hacemos el abono",
+                    "Buscamos el plan separe, le damos a los tres puntos en la esquina superior derecha, buscamos el ícono de abono, diligenciamos el valor y damos en \"Causar y pagar\"",
+                    "Buscamos el plan separe y en la esquina superior derecha le damos a los tres puntos, buscamos el ícono de abono, diligenciamos el valor y damos en \"Causar y pagar\""
+                ],
+                correct: 2
+            },
+            {
+                question: "¿Cuál es el ícono que indica que puedo registrar algo?",
+                options: [
+                    "No es un ícono, es la palabra \"guardar\"",
+                    "Ninguna de las anteriores",
+                    "+",
+                    "-"
+                ],
+                correct: 2
             }
-        }
-        
-        function cancelRedirect() {
-            redirectActive = false;
-            document.getElementById('countdown').textContent = 'Cancelado';
-            document.getElementById('cancel-btn').style.display = 'none';
-        }
-        
-        // Iniciar el contador cuando se carga la página
+        ];
+
+        // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            // Agregar clases de animación con delay
-            const elements = document.querySelectorAll('.animate-in');
-            elements.forEach((el, index) => {
-                el.style.animationDelay = `${index * 0.1}s`;
-            });
-            
-            // Iniciar contador
-            setTimeout(updateCountdown, 1000);
-            
-            // Track page view
-            if (typeof SinnutTraining !== 'undefined') {
-                SinnutTraining.trackEvent('page_view', {
-                    page: 'evaluacion-final',
-                    module: 'cierre-evaluacion'
-                });
-            }
+            // Set completion date
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('completionDate').value = today;
+
+            // Load first question
+            loadQuestion(0);
+
+            // Mark evaluation started
+            markEvaluationStarted();
         });
 
-        // Función para generar certificado
-        function generateCertificate(data) {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({
-                orientation: 'landscape',
-                unit: 'mm',
-                format: 'a4'
-            });
-
-            // Colores
-            const primaryColor = [13, 35, 57]; // #0D2339
-            const goldColor = [245, 158, 11]; // #f59e0b
-
-            // Fondo
-            doc.setFillColor(248, 250, 252); // neutral-50
-            doc.rect(0, 0, 297, 210, 'F');
-
-            // Borde decorativo
-            doc.setDrawColor(...primaryColor);
-            doc.setLineWidth(2);
-            doc.rect(10, 10, 277, 190);
-
-            // Logo/Encabezado
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(28);
-            doc.setTextColor(...primaryColor);
-            doc.text('OROEXPRESS', 148.5, 30, { align: 'center' });
-
-            doc.setFontSize(18);
-            doc.setTextColor(100, 116, 139); // neutral-500
-            doc.text('CERTIFICADO DE CAPACITACIÓN', 148.5, 45, { align: 'center' });
-
-            // Línea decorativa
-            doc.setDrawColor(...goldColor);
-            doc.setLineWidth(1);
-            doc.line(80, 50, 217, 50);
-
-            // Texto principal
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(14);
-            doc.setTextColor(15, 23, 42); // neutral-900
-            doc.text('Se certifica que:', 148.5, 70, { align: 'center' });
-
-            // Nombre del estudiante
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(20);
-            doc.setTextColor(...primaryColor);
-            doc.text(data.fullName.toUpperCase(), 148.5, 85, { align: 'center' });
-
-            // Documento
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(12);
-            doc.setTextColor(100, 116, 139);
-            doc.text(`C.C. ${data.document}`, 148.5, 95, { align: 'center' });
-
-            // Texto del curso
-            doc.setFontSize(14);
-            doc.setTextColor(15, 23, 42);
-            const courseText = 'ha completado satisfactoriamente el curso de capacitación en';
-            const courseLines = doc.splitTextToSize(courseText, 200);
-            doc.text(courseLines, 148.5, 110, { align: 'center' });
-
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(16);
-            doc.setTextColor(...primaryColor);
-            doc.text('SINNUT ERP', 148.5, 125, { align: 'center' });
-
-            // Módulos completados
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(12);
-            doc.setTextColor(100, 116, 139);
-            doc.text('Comprendiendo los módulos de:', 148.5, 140, { align: 'center' });
-
-            const modules = ['Contratos', 'Facturas', 'Caja y Contabilidad'];
-            doc.setFontSize(11);
-            modules.forEach((module, index) => {
-                doc.text(`• ${module}`, 148.5, 150 + (index * 5), { align: 'center' });
-            });
-
-            // Fecha
-            const completionDate = data.completionDate ? new Date(data.completionDate).toLocaleDateString('es-ES', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            }) : new Date().toLocaleDateString('es-ES', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-
-            doc.setFontSize(12);
-            doc.text(`Fecha de finalización: ${completionDate}`, 148.5, 175, { align: 'center' });
-
-            // Firma
-            doc.setFont('helvetica', 'italic');
-            doc.setFontSize(10);
-            doc.setTextColor(100, 116, 139);
-            doc.text('Equipo de Capacitación Sinnut', 148.5, 185, { align: 'center' });
-
-            // Pie de página
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(8);
-            doc.setTextColor(148, 163, 184); // neutral-400
-            doc.text('Este certificado es válido únicamente en formato digital oficial.', 148.5, 195, { align: 'center' });
-
-            // Guardar y descargar
-            const fileName = `Certificado_${data.fullName.replace(/\s+/g, '_')}_${Date.now()}.pdf`;
-            doc.save(fileName);
-
-            return fileName;
+        function markEvaluationStarted() {
+            // Marcar que el usuario ha iniciado la evaluación
+            localStorage.setItem('evaluation_started', 'true');
+            localStorage.setItem('evaluation_start_time', new Date().toISOString());
         }
 
-        // Manejar formulario de certificación
-        document.getElementById('certification-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
+        function startQuiz() {
+            document.querySelector('.instructions-section').style.display = 'none';
+            document.getElementById('quizSection').style.display = 'block';
 
-            const formData = {
-                fullName: document.getElementById('full-name').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                document: document.getElementById('document').value.trim(),
-                completionDate: document.getElementById('completion-date').value,
-                timestamp: new Date().toISOString()
-            };
+            startTime = new Date();
+            startTimer();
 
-            // Validar campos requeridos
-            if (!formData.fullName || !formData.email || !formData.document) {
-                alert('Por favor, completa todos los campos obligatorios.');
+            // Track quiz start
+            if (typeof SinnutTraining !== 'undefined') {
+                SinnutTraining.trackEvent('quiz_start', {
+                    module: 'cierre-evaluacion',
+                    timestamp: startTime.toISOString()
+                });
+            }
+        }
+
+        function loadQuestion(index) {
+            const question = questions[index];
+            const container = document.getElementById('questionContainer');
+
+            container.innerHTML = `
+                <div class="question-card animate-slide-in">
+                    <div class="question-number">
+                        <i class="fas fa-question-circle"></i>
+                        Pregunta ${index + 1} de 11
+                    </div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">
+                        ${question.options.map((option, optionIndex) => `
+                            <div class="option">
+                                <input type="radio" id="option${optionIndex}" name="question${index}" value="${optionIndex}" ${answers[index] === optionIndex ? 'checked' : ''}>
+                                <label for="option${optionIndex}">${option}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            updateNavigation();
+            updateProgress();
+        }
+
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.style.display = currentQuestion === questions.length - 1 ? 'none' : 'flex';
+            submitBtn.style.display = currentQuestion === questions.length - 1 ? 'flex' : 'none';
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('questionCounter').textContent = `Pregunta ${currentQuestion + 1} de 11`;
+        }
+
+        function nextQuestion() {
+            saveCurrentAnswer();
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion(currentQuestion);
+            }
+        }
+
+        function previousQuestion() {
+            saveCurrentAnswer();
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion(currentQuestion);
+            }
+        }
+
+        function saveCurrentAnswer() {
+            const selectedOption = document.querySelector(`input[name="question${currentQuestion}"]:checked`);
+            answers[currentQuestion] = selectedOption ? parseInt(selectedOption.value) : null;
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((new Date() - startTime) / 1000);
+                const hours = Math.floor(elapsed / 3600);
+                const minutes = Math.floor((elapsed % 3600) / 60);
+                const seconds = elapsed % 60;
+
+                document.getElementById('timer').textContent =
+                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function submitQuiz() {
+            saveCurrentAnswer();
+            clearInterval(timerInterval);
+
+            const correctAnswers = answers.reduce((count, answer, index) => {
+                return count + (answer === questions[index].correct ? 1 : 0);
+            }, 0);
+
+            const percentage = Math.round((correctAnswers / questions.length) * 100);
+            const passed = percentage >= 70;
+
+            showResults(correctAnswers, percentage, passed);
+        }
+
+        function showResults(correct, percentage, passed) {
+            const modal = document.getElementById('resultsModal');
+            const resultIcon = document.getElementById('resultIcon');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultText = document.getElementById('resultText');
+            const finalScore = document.getElementById('finalScore');
+            const certificateForm = document.getElementById('certificateForm');
+            const certificateBtn = document.getElementById('certificateBtn');
+            const retryBtn = document.getElementById('retryBtn');
+
+            if (passed) {
+                resultIcon.innerHTML = '<i class="fas fa-trophy" style="color: var(--success-color);"></i>';
+                resultTitle.textContent = '¡Felicitaciones! Has Aprobado';
+                resultText.textContent = `Obtuviste ${correct} de 11 respuestas correctas (${percentage}%). Ahora puedes generar tu certificado de capacitación.`;
+                certificateForm.style.display = 'grid';
+                certificateBtn.style.display = 'flex';
+                retryBtn.style.display = 'none';
+            } else {
+                resultIcon.innerHTML = '<i class="fas fa-redo" style="color: var(--warning-color);"></i>';
+                resultTitle.textContent = 'Evaluación No Aprobada';
+                resultText.textContent = `Obtuviste ${correct} de 11 respuestas correctas (${percentage}%). Necesitas al menos 70% para aprobar. Puedes intentarlo de nuevo.`;
+                certificateForm.style.display = 'none';
+                certificateBtn.style.display = 'none';
+                retryBtn.style.display = 'flex';
+            }
+
+            finalScore.textContent = `${percentage}%`;
+
+            modal.classList.add('show');
+
+            // Track quiz completion
+            if (typeof SinnutTraining !== 'undefined') {
+                SinnutTraining.trackEvent('quiz_complete', {
+                    module: 'cierre-evaluacion',
+                    score: percentage,
+                    passed: passed,
+                    correct_answers: correct,
+                    total_questions: questions.length
+                });
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('resultsModal').classList.remove('show');
+        }
+
+        function generateCertificate() {
+            const form = document.getElementById('certificateForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
                 return;
             }
 
-            // Mostrar loading
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generando...';
-            submitBtn.disabled = true;
+            const studentData = {
+                name: document.getElementById('studentName').value,
+                email: document.getElementById('studentEmail').value,
+                id: document.getElementById('studentId').value,
+                completionDate: document.getElementById('completionDate').value,
+                score: document.getElementById('finalScore').textContent
+            };
 
-            try {
-                // Generar certificado PDF
-                const fileName = generateCertificate(formData);
-                
-                // Enviar correos
-                await sendEmails(formData, fileName);
-                
-                // Mostrar mensaje de éxito
-                alert(`¡Certificado generado exitosamente!\n\n� Archivo descargado: ${fileName}\n\n📧 Correos enviados automáticamente a:\n• ${formData.email} (usuario)\n• soporte.ti@oroexpress.com.co (gestión humana)\n\n¡Proceso completado!`);
+            // Show loading state
+            const certificateBtn = document.getElementById('certificateBtn');
+            certificateBtn.innerHTML = '<span class="loading"></span> Generando...';
+            certificateBtn.disabled = true;
 
-                // Limpiar formulario
-                this.reset();
+            // Simulate certificate generation (replace with actual implementation)
+            setTimeout(() => {
+                // Here you would integrate with your certificate generation system
+                console.log('Certificate data:', studentData);
 
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error al procesar el certificado. Por favor, intenta nuevamente.');
-            } finally {
-                // Restaurar botón
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
-        });
+                // For now, just show success message
+                alert(`¡Certificado generado exitosamente!\n\nNombre: ${studentData.name}\nEmail: ${studentData.email}\nDocumento: ${studentData.id}\nFecha: ${studentData.completionDate}\nPuntuación: ${studentData.score}\n\nEl certificado será enviado a tu correo electrónico.`);
 
-        // Función para enviar correos
-        async function sendEmails(formData, fileName) {
-            try {
-                // Mostrar mensaje de envío
-                const submitBtn = document.getElementById('submitBtn');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = '📧 Enviando correos...';
-                submitBtn.disabled = true;
+                certificateBtn.innerHTML = '<i class="fas fa-certificate"></i> Certificado Generado';
+                closeModal();
 
-                // Preparar datos para enviar al servidor
-                const emailData = {
-                    ...formData,
-                    fileName,
-                    timestamp: new Date().toISOString()
-                };
-
-                console.log('Enviando datos al servidor:', emailData);
-
-                // Enviar datos al servidor Python
-                const response = await fetch('http://localhost:5000/send_certificate', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(emailData)
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    alert(`✅ ¡Certificado generado y enviado exitosamente!\n\n📧 Correos enviados a:\n• ${formData.email}\n• Gestión Humana\n\n📄 PDF descargado: ${fileName}`);
-                    console.log('✅ Éxito:', result.message);
-                } else {
-                    throw new Error(result.message || 'Error desconocido en el servidor');
+                // Track certificate generation
+                if (typeof SinnutTraining !== 'undefined') {
+                    SinnutTraining.trackEvent('certificate_generated', {
+                        module: 'cierre-evaluacion',
+                        student_data: studentData
+                    });
                 }
+            }, 2000);
+        }
 
-            } catch (error) {
-                console.error('❌ Error:', error);
+        function retryQuiz() {
+            closeModal();
 
-                // Fallback: guardar datos para envío posterior
-                console.log('Usando fallback: guardando datos para envío posterior');
-                const emailData = {
-                    ...formData,
-                    fileName,
-                    timestamp: new Date().toISOString(),
-                    status: 'pending',
-                    error: error.message
-                };
+            // Reset quiz state
+            currentQuestion = 0;
+            answers = new Array(11).fill(null);
+            startTime = new Date();
 
-                // Guardar en localStorage como respaldo
-                const pendingEmails = JSON.parse(localStorage.getItem('pending_certificates') || '[]');
-                pendingEmails.push(emailData);
-                localStorage.setItem('pending_certificates', JSON.stringify(pendingEmails));
+            // Reset timer display
+            document.getElementById('timer').textContent = '00:00:00';
 
-                // Crear archivo JSON para descarga
-                const dataStr = JSON.stringify(emailData, null, 2);
-                const dataBlob = new Blob([dataStr], { type: 'application/json' });
-                const dataLink = document.createElement('a');
-                dataLink.href = URL.createObjectURL(dataBlob);
-                dataLink.download = `certificado_${formData.fullName.replace(/\s+/g, '_')}_${Date.now()}.json`;
-                dataLink.click();
+            // Reload first question
+            loadQuestion(0);
 
-                alert(`⚠️ Error enviando correos automáticamente\n\n✅ PDF generado y descargado: ${fileName}\n✅ Datos guardados para envío posterior\n\n� Archivo JSON descargado para procesar manualmente\n\nPara enviar manualmente: python send_emails.py archivo.json`);
-
-            } finally {
-                // Restaurar botón
-                const submitBtn = document.getElementById('submitBtn');
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        }        // Establecer fecha por defecto
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('completion-date').value = today;
-        });
+            // Restart timer
+            startTimer();
+        }
     </script>
 </body>
 </html>
